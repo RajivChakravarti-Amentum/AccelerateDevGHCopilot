@@ -11,14 +11,14 @@ var configuration = new ConfigurationBuilder()
 .Build();
 
 services.AddSingleton<IConfiguration>(configuration);
+ services.AddSingleton<JsonData>();
+ services.AddSingleton<ConsoleApp>();
 
 services.AddScoped<IPatronRepository, JsonPatronRepository>();
 services.AddScoped<ILoanRepository, JsonLoanRepository>();
 services.AddScoped<ILoanService, LoanService>();
 services.AddScoped<IPatronService, PatronService>();
 
-services.AddSingleton<JsonData>();
-services.AddSingleton<ConsoleApp>();
 
 var servicesProvider = services.BuildServiceProvider();
 
